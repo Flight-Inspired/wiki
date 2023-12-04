@@ -1,2 +1,0 @@
-# Pandas
-is a [Python](/wiki/Python) software library for data manipulation and data analysis. In particular, it offers data structures and operations for manipulating numerical tables and time series.
