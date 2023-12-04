@@ -121,5 +121,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'wiki/encyclopedia/templates/encyclopedia/img/'),
+    os.path.join(BASE_DIR, 'wiki/encyclopedia/static/img/'),
 ]
