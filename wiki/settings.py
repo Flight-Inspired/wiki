@@ -122,7 +122,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'wiki/encyclopedia/static/img/'),
-    os.path.join(BASE_DIR, 'wiki/encyclopedia/templates/'),
-    os.path.join(BASE_DIR, 'wiki/entries/'),
-    os.path.join(BASE_DIR, 'wiki/encyclopedia/static/encyclopedia/'),
+    os.path.join(BASE_DIR, '/opt/render/project/src/wiki/encyclopedia/static/img/'),
 ]
