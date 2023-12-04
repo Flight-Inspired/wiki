@@ -1,34 +1,33 @@
-name: Deploy to GitHub Pages
+name: Django Application Deployment
 
 on:
   push:
     branches:
-      - master  # Change this to your main branch name
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          ruby-version: 2.7
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Build and deploy
+      - name: Deploy to Production
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build --destination ./_site
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          touch ./_site/.nojekyll
-          git add .
-          git commit -m "Deploying to GitHub Pages"
-          git push origin main:gh-pages  # Change 'main' to your source branch
+          python manage.py migrate
+          python manage.py collectstatic --no-input
+          # Additional commands for your specific deployment process
+
+      # Add steps for deploying to your hosting service or server
+
